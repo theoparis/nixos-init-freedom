@@ -148,17 +148,17 @@ in {
             up = ''
               #!${pkgs.execline}/bin/execlineb -P
 
-              foreground { ${pkgs.iproute}/bin/ip address add 127.0.0.1 dev lo }
-              foreground { ${pkgs.iproute}/bin/ip link set lo up }
+              foreground { ${pkgs.iproute2}/bin/ip address add 127.0.0.1 dev lo }
+              foreground { ${pkgs.iproute2}/bin/ip link set lo up }
 
               # address is set by network-...eth0
-              foreground { ${pkgs.iproute}/bin/ip link set eth0 up }
+              foreground { ${pkgs.iproute2}/bin/ip link set eth0 up }
             '';
             down = ''
               #!${pkgs.execline}/bin/execlineb -P
 
-              foreground { ${pkgs.iproute}/bin/ip link set eth0 down }
-              foreground { ${pkgs.iproute}/bin/ip link set lo down }
+              foreground { ${pkgs.iproute2}/bin/ip link set eth0 down }
+              foreground { ${pkgs.iproute2}/bin/ip link set lo down }
             '';
           };
 
